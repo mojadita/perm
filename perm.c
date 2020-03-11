@@ -26,8 +26,6 @@ char *psep = "";
 
 void permuta(int argc, char **argv)
 {
-	int i;
-
 	if (argc <= 0) {
 		char *sep, **arg;
 		printf("%s", psep);
@@ -40,6 +38,8 @@ void permuta(int argc, char **argv)
 
 		return;
 	}
+
+	int i;
 	for (i = 0; i < argc; i++) {
 		ex(&argv[0], &argv[i]);
 		permuta(argc-1, argv+1);
@@ -65,11 +65,13 @@ int main(int argc, char **argv)
 	 * if the pointers are equal, the strings are equal,
 	 * without the need to allocate memory */
 	int i;
-	for(i = 0; i < argc-1; i++) {
+	for(i = 1; i < argc; i++) {
 		int j;
-		for (j = i + 1; j < argc; j++) {
-			if (0 == strcmp(argv[i], argv[j]))
+		for (j = 0; j < i; j++) {
+			if (0 == strcmp(argv[j], argv[i])) {
 				argv[j] = argv[i];
+				break; /* no need to continue */
+			}
 		}
 	}
 
