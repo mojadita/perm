@@ -5,16 +5,19 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <getopt.h>
 
 
-void ex(char **a, char **b)
+bool ex(char **a, char **b)
 {
-	if (a == b) return;
+	if (a == b) return false;
 
 	char *p = *a;
 	*a = *b;
 	*b = p;
+
+	return true;
 }
 
 char **all;
@@ -25,7 +28,6 @@ char *psep = "";
 void permuta(int argc, char **argv)
 {
 	int i;
-
 
 	if (argc <= 0) {
 		char *sep, **arg;
@@ -40,9 +42,9 @@ void permuta(int argc, char **argv)
 		return;
 	}
 	for (i = 0; i < argc; i++) {
-		ex(&argv[0], &argv[i]);
+		bool did_ex = ex(&argv[0], &argv[i]);
 		permuta(argc-1, argv+1);
-		ex(&argv[0], &argv[i]);
+		if (did_ex) ex(&argv[0], &argv[i]);
 	}
 }
 
