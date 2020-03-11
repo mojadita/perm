@@ -15,7 +15,9 @@ The
 calculates all permutations of the command line arguments, using
 .Ar arg_separator
 to separate them.
-(by default, it uses ", " as separator)
+(by default, it uses
+.Cm "', '"
+as separator)
 The
 .Ar perm_separator
 is used between permutations.
@@ -27,14 +29,20 @@ establishes
 as the separator between command line arguments.
 By default, the
 .Ar arg_separator
-is the string ", ".
+is the string
+.Cm "', '" .
 .It Fl l Ar perm_separator
 establishes
 .Ar perm_separator 
 as the permutation separator.
 By default, the
 .Ar perm_separator
-is a newline character ('\en').
+is a newline character
+.Cm "'\en'" "." 
 .El
+.Sh NOTES
+The program ends printing always a newline
+.Cm "'\en'" ,
+and this cannot be changed.
 .Sh AUTHOR
 .An "Luis Colorado" Aq Mt luiscoloradourcola@gmail.com
