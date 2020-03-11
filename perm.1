@@ -1,0 +1,40 @@
+.Dd $Mdocdate$
+.Dt PERM 1
+.OS
+.Sh NAME
+.Nm perm
+.Nd a program to calculate permutations of command line arguments.
+.Sh SYNOPSIS
+.Nm perm
+.Op Fl s Ar arg_separator
+.Op Fl l Ar perm_terminator
+.Op Ar arg Cm ...
+.Sh DESCRIPTION
+The
+.Nm
+calculates all permutations of the command line arguments, using
+.Ar arg_separator
+to separate them.
+(by default, it uses ", " as separator)
+The
+.Ar perm_separator
+is used between permutations.
+.Sh OPTIONS
+.Bl -tag 
+.It Fl s Ar arg_separator
+establishes
+.Ar arg_separator
+as the separator between command line arguments.
+By default, the
+.Ar arg_separator
+is the string ", ".
+.It Fl l Ar perm_separator
+establishes
+.Ar perm_separator 
+as the permutation separator.
+By default, the
+.Ar perm_separator
+is a newline character ('\en').
+.El
+.Sh AUTHOR
+.An "Luis Colorado" Aq Mt luiscoloradourcola@gmail.com
