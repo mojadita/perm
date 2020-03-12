@@ -76,5 +76,6 @@ int main(int argc, char **argv)
 	}
 
 	permuta(argc, argv);
-	puts("");
+
+	if (argc) puts("");
 }
