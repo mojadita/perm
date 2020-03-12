@@ -1,4 +1,4 @@
-# Perm, a program to geneerate permutations of its arguments.
+# Perm, a program to generate permutations of its arguments.
 
 Just do
 
